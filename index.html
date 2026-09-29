@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css">
+		<header> 
+		<h1>🎓✧˖° Welcome to Grade Calculator ⋆˚࿔ </h1>
+		<p>Type in your grades to calculate the average grades. ✎ᝰ.ᐟ⋆⑅˚₊ </p>
+		</header>
+		
+
+		
+		  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grade Calculator</title>
+  <style>
+  * {
+header {
+	text-align: center;
+	background: #DCC9E3;
+	color: white;
+	padding: 25px;
+	border-radius: 14px;
+	margin-bottom: 20px;
+	}
+:root {
+	background: #DCC9E3;
+	card-background: #DCC9E3
+	primary: #DCC9E3;
+	text: black
+}
+    :root {
+      --bg: #f4f7f6;
+      --card-bg: #ffffff;
+      --primary: #4a90e2;
+      --text: #333333;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .calculator-card {
+      background: var(--card-bg);
+      padding: 24px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    h1, h2 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+
+    fieldset {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+    }
+
+    legend {
+      font-weight: bold;
+      padding: 0 6px;
+    }
+
+    .form-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    label {
+      font-size: 0.9rem;
+    }
+
+    input[type="number"] {
+      width: 70px;
+      padding: 4px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      width: 100%;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    button:hover {
+      background-color: #357abd;
+    }
+
+    .results {
+      margin-top: 20px;
+      background: #eef5fc;
+      padding: 12px;
+      border-radius: 6px;
+    }
+
+    .results p {
+      margin: 6px 0;
+    }
+
+    .overall {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+
+<div class="calculator-card">
+  <h1>Grade Calculator</h1>
+
+  <form id="gradeForm">
+    <!-- 2 Tests -->
+    <fieldset>
+      <legend>Tests (2)</legend>
+      <div class="form-group">
+        <label for="test1">Test 1:</label>
+        <input type="number" class="test-input" id="test1" min="0" max="100" required>
+      </div>
+      <div class="form-group">
+        <label for="test2">Test 2:</label>
+        <input type="number" class="test-input" id="test2" min="0" max="100" required>
+      </div>
+    </fieldset>
+
+    <!-- 4 Quizzes -->
+    <fieldset>
+      <legend>Quizzes (4)</legend>
+      <div class="form-group">
+        <label for="quiz1">Quiz 1:</label>
+        <input type="number" class="quiz-input" id="quiz1" min="0" max="100" required>
+      </div>
+      <div class="form-group">
+        <label for="quiz2">Quiz 2:</label>
+        <input type="number" class="quiz-input" id="quiz2" min="0" max="100" required>
+      </div>
+      <div class="form-group">
+        <label for="quiz3">Quiz 3:</label>
+        <input type="number" class="quiz-input" id="quiz3" min="0" max="100" required>
+      </div>
+      <div class="form-group">
+        <label for="quiz4">Quiz 4:</label>
+        <input type="number" class="quiz-input" id="quiz4" min="0" max="100" required>
+      </div>
+    </fieldset>
+
+    <!-- 6 Projects -->
+    <fieldset>
+      <legend>Projects (6)</legend>
+      <div class="form-group">
+        <label for="proj1">Project 1:</label>
+        <input type="number" class="project-input" id="proj1" min="0" max="100" required>
+      </div>
+      <div class="form-group">
+        <label for="proj2">Project 2:</label>
+        <input type="number" class="project-input" id="proj2" min="0" max="100" required>
+      </div>
+      <div class="form-group">
+        <label for="proj3">Project 3:</label>
+        <input type="number" class="project-input" id="proj3" min="0" max="100" required>
+      </div>
+      <div class="form-group">
+        <label for="proj4">Project 4:</label>
+        <input type="number" class="project-input" id="proj4" min="0" max="100" required>
+      </div>
+      <div class="form-group">
+        <label for="proj5">Project 5:</label>
+        <input type="number" class="project-input" id="proj5" min="0" max="100" required>
+      </div>
+      <div class="form-group">
+        <label for="proj6">Project 6:</label>
+        <input type="number" class="project-input" id="proj6" min="0" max="100" required>
+      </div>
+    </fieldset>
+
+    <button type="button" onclick="calculateGrades()">Calculate Grade Average</button>
+  </form>
+
+  <div class="results" id="resultsBox" style="display:none;">
+    <h2>Results</h2>
+    <!-- Bonus section averages -->
+    <p>Test Average: <span id="testAvg">0</span>%</p>
+    <p>Quiz Average: <span id="quizAvg">0</span>%</p>
+    <p>Project Average: <span id="projAvg">0</span>%</p>
+    <hr>
+    <!-- Overall average (unweighted, all 12 items treated equal) -->
+    <p class="overall">Overall Grade Average: <span id="overallAvg">0</span>%</p>
+  </div>
+</div>
+
+<script>
+  function calculateGrades() {
+    const getValues = (selector) => {
+      return Array.from(document.querySelectorAll(selector))
+                  .map(input => parseFloat(input.value) || 0);
+    };
+
+    const tests = getValues('.test-input');
+    const quizzes = getValues('.quiz-input');
+    const projects = getValues('.project-input');
+
+    const sum = arr => arr.reduce((acc, curr) => acc + curr, 0);
+    const avg = arr => arr.length > 0 ? (sum(arr) / arr.length) : 0;
+
+    const testAverage = avg(tests);
+    const quizAverage = avg(quizzes);
+    const projectAverage = avg(projects);
+
+    // Unweighted overall average across all 12 assignments equal weight
+    const allGrades = [...tests, ...quizzes, ...projects];
+    const overallAverage = avg(allGrades);
+
+    // Display averages rounded to 2 decimal places
+    document.getElementById('testAvg').textContent = testAverage.toFixed(2);
+    document.getElementById('quizAvg').textContent = quizAverage.toFixed(2);
+    document.getElementById('projAvg').textContent = projectAverage.toFixed(2);
+    document.getElementById('overallAvg').textContent = overallAverage.toFixed(2);
+
+    document.getElementById('resultsBox').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
+
+
+		
+		
+		
